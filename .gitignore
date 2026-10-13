@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+# Ultralytics training output and auto-downloaded files
+runs/
+datasets/
+/yolo*.pt
+temp.jpg
+.env
