@@ -1,4 +1,11 @@
-ultralytics
-fastapi
-uvicorn
-python-multipart
+# Runtime dependencies, pinned to the versions tested on this project's dev machine
+# (Windows 10, Python 3.12.10). Install PyTorch FIRST for your hardware, see README "Setup".
+fastapi==0.143.0
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+pydantic==2.14.1
+ultralytics==8.4.176
+pillow==10.2.0
+# torch 2.3.x wheels were built against NumPy 1.x, and opencv-python>=4.12 requires NumPy 2.
+numpy==1.26.4
+opencv-python==4.11.0.86
