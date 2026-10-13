@@ -1,9 +1,11 @@
 import dataclasses
 import io
+import os
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import pytest
+import torch
 from PIL import Image
 
 from app.model import Detector
@@ -19,6 +21,9 @@ def test_health(client):
     body = r.json()
     assert body["status"] == "ok"
     assert body["classes"] == ["buffalo", "elephant", "rhino", "zebra"]
+    # Regression: /health used to report "cpu" even while inference ran on the GPU.
+    on_gpu = torch.cuda.is_available() and os.getenv("DEVICE", "") != "cpu"
+    assert body["device"].startswith("cuda" if on_gpu else "cpu")
 
 
 def test_predict_finds_elephant_and_zebra(client, sample_bytes):

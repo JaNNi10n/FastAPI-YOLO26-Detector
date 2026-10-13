@@ -32,7 +32,9 @@ class Detector:
     def warmup(self) -> str:
         """Run one dummy inference so the first real request doesn't pay CUDA/cuDNN init cost."""
         self._run(Image.new("RGB", (self.imgsz, self.imgsz)), conf=0.25, iou=0.7, max_det=1)
-        return str(self.model.device)
+        # The predictor holds the copy of the weights that actually runs; `self.model.device`
+        # still reports the CPU copy loaded from disk, even when inference runs on CUDA.
+        return str(self.model.predictor.device)
 
     def _run(self, image: Image.Image, conf: float, iou: float, max_det: int):
         """Run the model; returns (result, milliseconds spent in the model, excluding lock wait)."""

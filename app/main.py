@@ -59,7 +59,7 @@ def load_image(file: UploadFile, max_bytes: int) -> Image.Image:
 
 # Query params shared by both predict endpoints.
 Conf = Query(0.25, ge=0.0, le=1.0, description="Minimum confidence to keep a box")
-Iou = Query(0.7, ge=0.0, le=1.0, description="IoU threshold for NMS (ignored by NMS-free models such as YOLO26)")
+Iou = Query(0.7, ge=0.0, le=1.0, description="IoU threshold for non-max suppression")
 MaxDet = Query(100, ge=1, le=300, description="Maximum number of boxes returned")
 
 
