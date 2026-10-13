@@ -9,7 +9,7 @@ val: Fast image access  (ping: 0.5±0.0 ms, read: 53.5±28.1 MB/s, size: 49.0 KB
                  rhino         55         85      0.953      0.965      0.964      0.863
                  zebra         59        114      0.951      0.877      0.962      0.774
 Speed: 34.1ms preprocess, 102.5ms inference, 0.0ms loss, 7.9ms postprocess per image
-Results saved to E:\Jassi\portfolio\FastAPI-YOLO26-Detector\runs\eval-val
+Results saved to <repo>\runs\eval-val
 {
   "weights": "yolo26n-african-wildlife.pt",
   "data": "african-wildlife.yaml",

@@ -18,7 +18,7 @@ WARNING NMS time limit 2.050s exceeded
                  zebra         59        114      0.947      0.632      0.697      0.559
 Speed: 15.9ms preprocess, 169.6ms inference, 0.0ms loss, 107.4ms postprocess per image
 Results saved to
-E:\Jassi\portfolio\FastAPI-YOLO26-Detector\runs\eval-val
+<repo>\runs\eval-val
 {
   "weights": "yolo26n-african-wildlife.pt",
   "data": "african-wildlife.yaml",
@@ -85,7 +85,7 @@ WARNING NMS time limit 2.800s exceeded
                  zebra         66        135      0.974      0.756      0.859      0.699
 Speed: 47.3ms preprocess, 172.1ms inference, 0.0ms loss, 27.2ms postprocess per image
 Results saved to
-E:\Jassi\portfolio\FastAPI-YOLO26-Detector\runs\eval-test
+<repo>\runs\eval-test
 {
   "weights": "yolo26n-african-wildlife.pt",
   "data": "african-wildlife.yaml",

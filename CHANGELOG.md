@@ -29,6 +29,8 @@
 - `/health` reported `cpu` while inference ran on the GPU; it now reports the predictor's real device.
 - `scripts/evaluate.py`: Ultralytics' NMS time limit silently dropped whole batches on a busy GPU and
   deflated mAP (val mAP50 0.772 instead of 0.966). Evaluation now disables the limit; both metric files were re-run.
+- The bundled `models/yolo26n-african-wildlife.pt` and the eval logs no longer contain absolute
+  paths from the training machine (checkpoint metadata only; the weights are unchanged).
 - Dockerfile: installs the system libraries OpenCV needs, uses CPU-only PyTorch, runs as a non-root
   user, adds a `HEALTHCHECK`, and has a `.dockerignore` so `.git` isn't copied into the image.
 
