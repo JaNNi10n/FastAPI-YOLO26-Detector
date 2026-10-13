@@ -1,0 +1,65 @@
+Ultralytics 8.4.176  Python-3.12.10 torch-2.3.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096MiB)
+YOLO26n summary (fused): 121 layers, 2,390,464 parameters, 0 gradients, 5.4 GFLOPs
+WARNING val: Slow image access detected (ping: 1.3±1.2 ms, read: 20.0±18.9 MB/s, size: 52.3 KB). Use local storage instead of remote/mounted storage for better performance. See https://docs.ultralytics.com/guides/model-training-tips
+
+
+                   all        227        375      0.981       0.92      0.975      0.847
+               buffalo         49         66      0.982      0.894      0.953      0.868
+              elephant         58         99      0.978      0.919      0.972      0.802
+                 rhino         55         75      0.986      0.973      0.992      0.915
+                 zebra         66        135      0.976      0.895      0.984      0.804
+Speed: 45.7ms preprocess, 159.9ms inference, 0.0ms loss, 10.3ms postprocess per image
+Results saved to E:\Jassi\portfolio\FastAPI-YOLO26-Detector\runs\eval-test
+{
+  "weights": "yolo26n-african-wildlife.pt",
+  "data": "african-wildlife.yaml",
+  "split": "test",
+  "images": 227,
+  "imgsz": 640,
+  "overall": {
+    "precision": 0.9808,
+    "recall": 0.9201,
+    "mAP50": 0.9749,
+    "mAP50-95": 0.8471
+  },
+  "per_class": {
+    "buffalo": {
+      "precision": 0.9825,
+      "recall": 0.8939,
+      "mAP50": 0.9527,
+      "mAP50-95": 0.8675,
+      "instances": 66
+    },
+    "elephant": {
+      "precision": 0.9785,
+      "recall": 0.9192,
+      "mAP50": 0.9719,
+      "mAP50-95": 0.8021,
+      "instances": 99
+    },
+    "rhino": {
+      "precision": 0.9865,
+      "recall": 0.9727,
+      "mAP50": 0.9915,
+      "mAP50-95": 0.915,
+      "instances": 75
+    },
+    "zebra": {
+      "precision": 0.9758,
+      "recall": 0.8948,
+      "mAP50": 0.9837,
+      "mAP50-95": 0.8037,
+      "instances": 135
+    }
+  },
+  "speed_ms_per_image": {
+    "preprocess": 45.69,
+    "inference": 159.88,
+    "loss": 0.01,
+    "postprocess": 10.28
+  },
+  "hardware": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "torch": "2.3.1+cu118",
+  "ultralytics": "8.4.176",
+  "python": "3.12.10"
+}

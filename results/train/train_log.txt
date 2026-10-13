@@ -1,0 +1,449 @@
+===================== train.log (progress-bar lines removed) =====================
+Downloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt to 'yolo26n.pt': 100% ━━━━━━━━━━━━ 5.3MB 2.6MB/s 2.1s
+Ultralytics 8.4.176  Python-3.12.10 torch-2.3.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096MiB)
+engine\trainer: agnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=16, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=10, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=african-wildlife.yaml, degrees=0.0, deterministic=True, device=, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=30, erasing=0.4, exist_ok=True, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, iou=0.7, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolo26n.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=yolo26n-african-wildlife, nbs=64, nms=None, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=<repo>\runs, quantize=None, rect=False, resume=False, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=<repo>\runs\yolo26n-african-wildlife, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=4, workspace=None
+WARNING Dataset 'african-wildlife.yaml' images not found, missing path '<scratch>\datasets\african-wildlife\images\val'
+Downloading https://ultralytics.com/assets/african-wildlife.zip to '<scratch>\datasets\african-wildlife.zip': 100% ━━━━━━━━━━━━ 100.2MB 4.1MB/s 24.4s
+Unzipping <scratch>\datasets\african-wildlife.zip to <scratch>\datasets\african-wildlife...: 100% ━━━━━━━━━━━━ 3018/3018 1.1Kfiles/s 2.7s
+Dataset download success  (28.5s), saved to <scratch>\datasets
+Downloading https://ultralytics.com/assets/Arial.ttf to <appdata>/Ultralytics/Arial.ttf: 100% ━━━━━━━━━━━━ 755.1KB 5.8MB/s 0.1s
+Overriding model.yaml nc=80 with nc=4
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+  3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+  4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5, 3, True]        
+ 10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    119808  ultralytics.nn.modules.block.C3k2            [384, 128, 1, True]           
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1     34304  ultralytics.nn.modules.block.C3k2            [256, 64, 1, True]            
+ 17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1     95232  ultralytics.nn.modules.block.C3k2            [192, 128, 1, True]           
+ 20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1    463104  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True, 0.5, True]
+ 23        [16, 19, 22]  1    242736  ultralytics.nn.modules.head.Detect           [4, 1, True, [64, 128, 256]]  
+YOLO26n summary: 260 layers, 2,505,360 parameters, 2,505,360 gradients, 5.9 GFLOPs
+Remapped 2/4 cls head rows from pretrained weights by class name
+Transferred 708/708 items from pretrained weights
+AMP: running Automatic Mixed Precision (AMP) checks...
+AMP: downloading yolo26n.pt for AMP checks (one-time, not used for training)...
+Downloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt to 'weights\yolo26n.pt': 100% ━━━━━━━━━━━━ 5.3MB 17.4MB/s 0.3s
+AMP: checks passed 
+WARNING train: Slow image access detected (ping: 0.1±0.0 ms, read: 10.9±1.7 MB/s, size: 60.8 KB). Use local storage instead of remote/mounted storage for better performance. See https://docs.ultralytics.com/guides/model-training-tips
+train: New cache created: <scratch>\datasets\african-wildlife\labels\train.cache
+WARNING val: Slow image access detected (ping: 0.1±0.0 ms, read: 6.9±5.9 MB/s, size: 38.7 KB). Use local storage instead of remote/mounted storage for better performance. See https://docs.ultralytics.com/guides/model-training-tips
+val: New cache created: <scratch>\datasets\african-wildlife\labels\val.cache
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and determining best 'optimizer' and 'lr0' automatically... 
+optimizer: AdamW(lr=0.00125, momentum=0.9) with parameter groups 114 weight(decay=0.0), 126 weight(decay=0.0005), 126 bias(decay=0.0)
+Plotting labels to <repo>\runs\yolo26n-african-wildlife\labels.jpg... 
+WARNING MLflow: Failed to initialize: The filesystem tracking backend (e.g., './mlruns') is in maintenance mode and will not receive further updates. Please migrate to a database backend (e.g., 'sqlite:///mlflow.db') to access the latest MLflow features. The `mlflow migrate-filestore` tool migrates your existing data losslessly. See https://mlflow.org/docs/latest/self-hosting/migrate-from-file-store for migration guidance. If the filesystem backend is required for your workflow, set `MLFLOW_ALLOW_FILE_STORE=true` to opt out of this exception.
+WARNING MLflow: Not tracking this run
+Using 1052 train, 225 val images for fraction=1.0 at imgsz=640
+Using 4 dataloader workers
+Logging results to <repo>\runs\yolo26n-african-wildlife
+Starting training for 30 epochs...
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+       1/30      2.57G     0.9282         21    0.01314         60        640: 0% ──────────── 0/66  15.1s
+                   all        225        379      0.794      0.756      0.821       0.66
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+       2/30      2.62G     0.7831      3.978    0.01131         62        640: 0% ──────────── 0/66  0.4s
+                   all        225        379      0.855      0.777      0.851      0.608
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+       3/30      2.63G     0.8275      1.343    0.01489         65        640: 0% ──────────── 0/66  0.2s
+                   all        225        379      0.877      0.762      0.868      0.648
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+       4/30      2.64G     0.9818      1.494      0.014         58        640: 0% ──────────── 0/66  0.3s
+                   all        225        379      0.852      0.798      0.877      0.617
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+       5/30      2.63G      1.226      1.337     0.0216         68        640: 0% ──────────── 0/66  0.2s
+                   all        225        379      0.809       0.76      0.848      0.642
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+       6/30      2.63G      1.009      1.242    0.01458         64        640: 0% ──────────── 0/66  0.2s
+                   all        225        379      0.892      0.868      0.936      0.704
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+       7/30      2.63G     0.9547     0.8091    0.01391         62        640: 0% ──────────── 0/66  3.5s
+                   all        225        379      0.887      0.829      0.923      0.715
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+       8/30      2.63G      1.018      1.008    0.01377         67        640: 0% ──────────── 0/66  0.3s
+                   all        225        379      0.868      0.847      0.913      0.708
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+       9/30      2.63G     0.9499      1.426     0.0129         68        640: 0% ──────────── 0/66  0.3s
+                   all        225        379      0.885      0.859      0.926      0.724
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      10/30      2.63G     0.9961     0.8512    0.01335         84        640: 0% ──────────── 0/66  0.3s
+                   all        225        379       0.89      0.857      0.917      0.717
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+: 0% ──────────── 0/66  0.6s
+Traceback (most recent call last):
+  File "<repo>\scripts\train.py", line 95, in <module>
+    main()
+  File "<repo>\scripts\train.py", line 48, in main
+    model.train(
+  File "<scratch>\venv\Lib\site-packages\ultralytics\engine\model.py", line 898, in train
+    self.trainer.train()
+  File "<scratch>\venv\Lib\site-packages\ultralytics\engine\trainer.py", line 262, in train
+    self._do_train()
+  File "<scratch>\venv\Lib\site-packages\ultralytics\engine\trainer.py", line 546, in _do_train
+    loss, self.loss_items = self.model(batch)
+                            ^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<scratch>\venv\Lib\site-packages\ultralytics\nn\tasks.py", line 161, in forward
+    return self.loss(x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<scratch>\venv\Lib\site-packages\ultralytics\nn\tasks.py", line 467, in loss
+    preds = self.forward(batch["img"])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<scratch>\venv\Lib\site-packages\ultralytics\nn\tasks.py", line 162, in forward
+    return self.predict(x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<scratch>\venv\Lib\site-packages\ultralytics\nn\tasks.py", line 179, in predict
+    return self._predict_once(x, profile, embed)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<scratch>\venv\Lib\site-packages\ultralytics\nn\tasks.py", line 201, in _predict_once
+    x = m(x)  # run
+        ^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<scratch>\venv\Lib\site-packages\ultralytics\nn\modules\head.py", line 197, in forward
+    one2one = self.forward_head(x_detach, **self.one2one)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<scratch>\venv\Lib\site-packages\ultralytics\nn\modules\head.py", line 177, in forward_head
+    scores = torch.cat([cls_head[i](x[i]).view(bs, self.nc, -1) for i in range(self.nl)], dim=-1)
+                        ^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<scratch>\venv\Lib\site-packages\ultralytics\nn\modules\conv.py", line 87, in forward
+    return self.act(self.bn(self.conv(x)))
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\modules\batchnorm.py", line 175, in forward
+    return F.batch_norm(
+           ^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\nn\functional.py", line 2509, in batch_norm
+    return torch.batch_norm(
+           ^^^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 
+===================== train_resume.log (progress-bar lines removed) =====================
+Ultralytics 8.4.176  Python-3.12.10 torch-2.3.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096MiB)
+engine\trainer: agnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=8, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=10, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=<scratch>\venv\Lib\site-packages\ultralytics\cfg\datasets\african-wildlife.yaml, degrees=0.0, deterministic=True, device=, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=30, erasing=0.4, exist_ok=True, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, iou=0.7, kobj=1.0, line_width=None, lr0=0.00125, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=<repo>\runs\yolo26n-african-wildlife\weights\last.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=yolo26n-african-wildlife, nbs=64, nms=None, opset=None, optimize=False, optimizer=AdamW, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=<repo>\runs, quantize=None, rect=False, resume=<repo>\runs\yolo26n-african-wildlife\weights\last.pt, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=<repo>\runs\yolo26n-african-wildlife, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.0, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=4, workspace=None
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+  3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+  4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5, 3, True]        
+ 10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    119808  ultralytics.nn.modules.block.C3k2            [384, 128, 1, True]           
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1     34304  ultralytics.nn.modules.block.C3k2            [256, 64, 1, True]            
+ 17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1     95232  ultralytics.nn.modules.block.C3k2            [192, 128, 1, True]           
+ 20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1    463104  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True, 0.5, True]
+ 23        [16, 19, 22]  1    242736  ultralytics.nn.modules.head.Detect           [4, 1, True, [64, 128, 256]]  
+YOLO26n summary: 260 layers, 2,505,360 parameters, 2,505,360 gradients, 5.9 GFLOPs
+Transferred 708/708 items from pretrained weights
+AMP: running Automatic Mixed Precision (AMP) checks...
+AMP: checks passed 
+train: Fast image access  (ping: 0.2±0.1 ms, read: 118.7±32.9 MB/s, size: 60.8 KB)
+val: Fast image access  (ping: 0.2±0.0 ms, read: 97.2±83.6 MB/s, size: 38.7 KB)
+optimizer: AdamW(lr=0.00125, momentum=0.937) with parameter groups 114 weight(decay=0.0), 126 weight(decay=0.0005), 126 bias(decay=0.0)
+Plotting labels to <repo>\runs\yolo26n-african-wildlife\labels.jpg... 
+Resuming training <repo>\runs\yolo26n-african-wildlife\weights\last.pt from epoch 11 to 30 total epochs
+WARNING MLflow: Failed to initialize: The filesystem tracking backend (e.g., './mlruns') is in maintenance mode and will not receive further updates. Please migrate to a database backend (e.g., 'sqlite:///mlflow.db') to access the latest MLflow features. The `mlflow migrate-filestore` tool migrates your existing data losslessly. See https://mlflow.org/docs/latest/self-hosting/migrate-from-file-store for migration guidance. If the filesystem backend is required for your workflow, set `MLFLOW_ALLOW_FILE_STORE=true` to opt out of this exception.
+WARNING MLflow: Not tracking this run
+Using 1052 train, 225 val images for fraction=1.0 at imgsz=640
+Using 4 dataloader workers
+Logging results to <repo>\runs\yolo26n-african-wildlife
+Starting training for 30 epochs...
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      11/30      1.55G     0.6537     0.6307    0.01062         29        640: 0% ──────────── 0/132  19.5s
+  File "<python>\Lib\multiprocessing\queues.py", line 264, in _feed
+    obj = _ForkingPickler.dumps(obj)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\multiprocessing\reduction.py", line 51, in dumps
+    cls(buf, protocol).dump(obj)
+  File "<python>\Lib\site-packages\torch\multiprocessing\reductions.py", line 557, in reduce_storage
+    metadata = storage._share_filename_cpu_()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\storage.py", line 304, in wrapper
+    return fn(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\storage.py", line 378, in _share_filename_cpu_
+    return super()._share_filename_cpu_(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Couldn't open shared file mapping: <torch_11384_1376049050_91>, error code: <1455>
+===================== train_resume2.log (progress-bar lines removed) =====================
+Ultralytics 8.4.176  Python-3.12.10 torch-2.3.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096MiB)
+engine\trainer: agnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=8, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=10, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=<scratch>\venv\Lib\site-packages\ultralytics\cfg\datasets\african-wildlife.yaml, degrees=0.0, deterministic=True, device=, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=30, erasing=0.4, exist_ok=True, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, iou=0.7, kobj=1.0, line_width=None, lr0=0.00125, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=<repo>\runs\yolo26n-african-wildlife\weights\last.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=yolo26n-african-wildlife, nbs=64, nms=None, opset=None, optimize=False, optimizer=AdamW, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=<repo>\runs, quantize=None, rect=False, resume=<repo>\runs\yolo26n-african-wildlife\weights\last.pt, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=<repo>\runs\yolo26n-african-wildlife, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.0, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=2, workspace=None
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+  3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+  4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5, 3, True]        
+ 10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    119808  ultralytics.nn.modules.block.C3k2            [384, 128, 1, True]           
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1     34304  ultralytics.nn.modules.block.C3k2            [256, 64, 1, True]            
+ 17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1     95232  ultralytics.nn.modules.block.C3k2            [192, 128, 1, True]           
+ 20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1    463104  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True, 0.5, True]
+ 23        [16, 19, 22]  1    242736  ultralytics.nn.modules.head.Detect           [4, 1, True, [64, 128, 256]]  
+YOLO26n summary: 260 layers, 2,505,360 parameters, 2,505,360 gradients, 5.9 GFLOPs
+Transferred 708/708 items from pretrained weights
+AMP: running Automatic Mixed Precision (AMP) checks...
+AMP: checks passed 
+train: Fast image access  (ping: 0.6±0.3 ms, read: 54.5±13.4 MB/s, size: 60.8 KB)
+WARNING val: Slow image access detected (ping: 0.5±0.0 ms, read: 40.9±33.3 MB/s, size: 38.7 KB). Use local storage instead of remote/mounted storage for better performance. See https://docs.ultralytics.com/guides/model-training-tips
+optimizer: AdamW(lr=0.00125, momentum=0.937) with parameter groups 114 weight(decay=0.0), 126 weight(decay=0.0005), 126 bias(decay=0.0)
+Plotting labels to <repo>\runs\yolo26n-african-wildlife\labels.jpg... 
+Resuming training <repo>\runs\yolo26n-african-wildlife\weights\last.pt from epoch 11 to 30 total epochs
+WARNING MLflow: Failed to initialize: The filesystem tracking backend (e.g., './mlruns') is in maintenance mode and will not receive further updates. Please migrate to a database backend (e.g., 'sqlite:///mlflow.db') to access the latest MLflow features. The `mlflow migrate-filestore` tool migrates your existing data losslessly. See https://mlflow.org/docs/latest/self-hosting/migrate-from-file-store for migration guidance. If the filesystem backend is required for your workflow, set `MLFLOW_ALLOW_FILE_STORE=true` to opt out of this exception.
+WARNING MLflow: Not tracking this run
+Using 1052 train, 225 val images for fraction=1.0 at imgsz=640
+Using 2 dataloader workers
+Logging results to <repo>\runs\yolo26n-african-wildlife
+Starting training for 30 epochs...
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      11/30      1.55G     0.6537     0.6307    0.01062         29        640: 0% ──────────── 0/132  51.7s
+                   all        225        379      0.941      0.848      0.937      0.734
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      12/30       1.6G     0.6983     0.6437    0.01439         25        640: 0% ──────────── 0/132  0.5s
+                   all        225        379      0.945      0.836       0.94      0.754
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      13/30       1.6G     0.9835     0.8912    0.01471         31        640: 0% ──────────── 0/132  0.3s
+                   all        225        379      0.914      0.886      0.939      0.758
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      14/30       1.6G      0.802      0.681    0.01051         32        640: 0% ──────────── 0/132  0.4s
+                   all        225        379      0.933       0.88      0.951      0.783
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      15/30       1.6G      1.037      1.058     0.0152         45        640: 0% ──────────── 0/132  0.4s
+                   all        225        379      0.946      0.864      0.945      0.772
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      16/30       1.6G     0.8115     0.7679    0.01032         33        640: 0% ──────────── 0/132  0.1s
+                   all        225        379      0.905       0.87      0.932      0.769
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      17/30       1.6G     0.8558     0.9556    0.01761         28        640: 0% ──────────── 0/132  0.1s
+                   all        225        379      0.941      0.871      0.957      0.789
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      18/30       1.6G     0.9183     0.8801    0.01912         25        640: 0% ──────────── 0/132  0.2s
+                   all        225        379      0.934      0.907      0.955      0.794
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      19/30       1.6G     0.7126     0.8192    0.01329         29        640: 0% ──────────── 0/132  0.1s
+                   all        225        379      0.953       0.87      0.952       0.79
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      20/30       1.6G      1.018     0.9169   0.009967         36        640: 0% ──────────── 0/132  0.1s
+                   all        225        379      0.946      0.894      0.961        0.8
+Closing dataloader mosaic
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      21/30       1.6G     0.7865     0.3511    0.02938          9        640: 0% ──────────── 0/132  9.4s
+                   all        225        379      0.958      0.899      0.952      0.798
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      22/30       1.6G     0.5715     0.3527    0.01289         13        640: 0% ──────────── 0/132  0.2s
+                   all        225        379      0.941        0.9      0.959      0.797
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      23/30       1.6G     0.6562     0.3155    0.02102         11        640: 0% ──────────── 0/132  0.1s
+                   all        225        379      0.958      0.905      0.964      0.804
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      24/30       1.6G     0.8682     0.4693    0.01403         21        640: 0% ──────────── 0/132  0.2s
+                   all        225        379      0.916      0.924      0.966      0.811
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      25/30       1.6G     0.6976      0.274   0.007588         18        640: 0% ──────────── 0/132  0.3s
+                   all        225        379      0.947      0.903      0.965      0.811
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      26/30       1.6G     0.3577     0.1741   0.005662          9        640: 0% ──────────── 0/132  0.2s
+                   all        225        379      0.941      0.912      0.963      0.811
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      27/30       1.6G     0.3852     0.2006    0.00725          9        640: 0% ──────────── 0/132  0.3s
+                   all        225        379       0.95      0.908      0.965      0.818
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      28/30       1.6G     0.6923     0.4247    0.01775         14        640: 0% ──────────── 0/132  0.6s
+Traceback (most recent call last):
+  File "<python>\Lib\site-packages\torch\utils\data\dataloader.py", line 1133, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\queue.py", line 179, in get
+    raise Empty
+_queue.Empty
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "<repo>\scripts\train.py", line 105, in <module>
+    main()
+  File "<repo>\scripts\train.py", line 54, in main
+    model.train(resume=True, batch=args.batch, device=args.device, workers=args.workers)
+  File "<scratch>\venv\Lib\site-packages\ultralytics\engine\model.py", line 898, in train
+    self.trainer.train()
+  File "<scratch>\venv\Lib\site-packages\ultralytics\engine\trainer.py", line 262, in train
+    self._do_train()
+  File "<scratch>\venv\Lib\site-packages\ultralytics\engine\trainer.py", line 515, in _do_train
+    for i, batch in pbar:
+                    ^^^^
+  File "<scratch>\venv\Lib\site-packages\ultralytics\utils\tqdm.py", line 379, in __iter__
+    for item in self.iterable:
+                ^^^^^^^^^^^^^
+  File "<scratch>\venv\Lib\site-packages\ultralytics\data\build.py", line 87, in __iter__
+    yield next(self.iterator)
+          ^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\utils\data\dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\utils\data\dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\utils\data\dataloader.py", line 1285, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\site-packages\torch\utils\data\dataloader.py", line 1146, in _try_get_data
+    raise RuntimeError(f'DataLoader worker (pid(s) {pids_str}) exited unexpectedly') from e
+RuntimeError: DataLoader worker (pid(s) 17524) exited unexpectedly
+===================== train_resume3.log (progress-bar lines removed) =====================
+Ultralytics 8.4.176  Python-3.12.10 torch-2.3.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096MiB)
+engine\trainer: agnostic_nms=False, amp=True, angle=1.0, augment=False, auto_augment=randaugment, batch=8, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=10, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=<scratch>\venv\Lib\site-packages\ultralytics\cfg\datasets\african-wildlife.yaml, degrees=0.0, deterministic=True, device=, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=30, erasing=0.4, exist_ok=True, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, iou=0.7, kobj=1.0, line_width=None, lr0=0.00125, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=runs\yolo26n-african-wildlife\weights\last.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=yolo26n-african-wildlife, nbs=64, nms=None, opset=None, optimize=False, optimizer=AdamW, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=<repo>\runs, quantize=None, rect=False, resume=runs\yolo26n-african-wildlife\weights\last.pt, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=<repo>\runs\yolo26n-african-wildlife, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.0, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=0, workspace=None
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+  3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+  4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5, 3, True]        
+ 10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    119808  ultralytics.nn.modules.block.C3k2            [384, 128, 1, True]           
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1     34304  ultralytics.nn.modules.block.C3k2            [256, 64, 1, True]            
+ 17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1     95232  ultralytics.nn.modules.block.C3k2            [192, 128, 1, True]           
+ 20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1    463104  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True, 0.5, True]
+ 23        [16, 19, 22]  1    242736  ultralytics.nn.modules.head.Detect           [4, 1, True, [64, 128, 256]]  
+YOLO26n summary: 260 layers, 2,505,360 parameters, 2,505,360 gradients, 5.9 GFLOPs
+Transferred 708/708 items from pretrained weights
+AMP: running Automatic Mixed Precision (AMP) checks...
+AMP: downloading yolo26n.pt for AMP checks (one-time, not used for training)...
+Downloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt to 'weights\yolo26n.pt': 100% ━━━━━━━━━━━━ 5.3MB 3.7MB/s 1.4s
+AMP: checks passed 
+train: Fast image access  (ping: 0.2±0.0 ms, read: 96.2±46.6 MB/s, size: 60.8 KB)
+val: Fast image access  (ping: 0.2±0.0 ms, read: 72.2±54.8 MB/s, size: 38.7 KB)
+optimizer: AdamW(lr=0.00125, momentum=0.937) with parameter groups 114 weight(decay=0.0), 126 weight(decay=0.0005), 126 bias(decay=0.0)
+Plotting labels to <repo>\runs\yolo26n-african-wildlife\labels.jpg... 
+Resuming training runs\yolo26n-african-wildlife\weights\last.pt from epoch 28 to 30 total epochs
+WARNING MLflow: Failed to initialize: The filesystem tracking backend (e.g., './mlruns') is in maintenance mode and will not receive further updates. Please migrate to a database backend (e.g., 'sqlite:///mlflow.db') to access the latest MLflow features. The `mlflow migrate-filestore` tool migrates your existing data losslessly. See https://mlflow.org/docs/latest/self-hosting/migrate-from-file-store for migration guidance. If the filesystem backend is required for your workflow, set `MLFLOW_ALLOW_FILE_STORE=true` to opt out of this exception.
+WARNING MLflow: Not tracking this run
+Using 1052 train, 225 val images for fraction=1.0 at imgsz=640
+Using 0 dataloader workers
+Logging results to <repo>\runs\yolo26n-african-wildlife
+Starting training for 30 epochs...
+Closing dataloader mosaic
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      28/30      1.55G     0.7448     0.3386    0.01804         13        640: 0% ──────────── 0/132  4.5s
+                   all        225        379      0.952      0.899      0.959      0.818
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      29/30       1.6G     0.6471     0.4357   0.008956         18        640: 0% ──────────── 0/132  0.8s
+                   all        225        379      0.961      0.893      0.961      0.816
+      Epoch    GPU_mem   box_loss   cls_loss    l1_loss  Instances       Size
+      30/30       1.6G     0.4635     0.4698   0.007374         14        640: 0% ──────────── 0/132  0.8s
+                   all        225        379      0.949      0.899      0.961      0.815
+3 epochs completed in 0.123 hours.
+Optimizer stripped from <repo>\runs\yolo26n-african-wildlife\weights\last.pt, 5.4MB
+Optimizer stripped from <repo>\runs\yolo26n-african-wildlife\weights\best.pt, 5.4MB
+Validating <repo>\runs\yolo26n-african-wildlife\weights\best.pt...
+Ultralytics 8.4.176  Python-3.12.10 torch-2.3.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096MiB)
+YOLO26n summary (fused): 121 layers, 2,390,464 parameters, 0 gradients, 5.4 GFLOPs
+                   all        225        379       0.95      0.908      0.965      0.818
+               buffalo         62         89      0.976      0.926      0.982      0.835
+              elephant         53         91      0.919      0.867      0.953      0.802
+                 rhino         55         85      0.953      0.961      0.964      0.862
+                 zebra         59        114      0.953      0.877      0.962      0.772
+Speed: 11.3ms preprocess, 4.7ms inference, 0.0ms loss, 8.9ms postprocess per image
+Results saved to <repo>\runs\yolo26n-african-wildlife
+{
+  "base_model": "yolo26n.pt",
+  "data": "african-wildlife.yaml",
+  "epochs": 30,
+  "imgsz": 640,
+  "batch_this_invocation": 8,
+  "seed": 0,
+  "train_minutes_this_invocation": 9.4,
+  "resumed_from": "runs/yolo26n-african-wildlife/weights/last.pt",
+  "device": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "torch": "2.3.1+cu118",
+  "python": "3.12.10",
+  "weights": "models\\yolo26n-african-wildlife.pt"
+}

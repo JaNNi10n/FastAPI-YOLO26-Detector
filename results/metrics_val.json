@@ -1,0 +1,53 @@
+{
+  "weights": "yolo26n-african-wildlife.pt",
+  "data": "african-wildlife.yaml",
+  "split": "val",
+  "images": 225,
+  "imgsz": 640,
+  "overall": {
+    "precision": 0.9522,
+    "recall": 0.9091,
+    "mAP50": 0.9658,
+    "mAP50-95": 0.818
+  },
+  "per_class": {
+    "buffalo": {
+      "precision": 0.9763,
+      "recall": 0.9264,
+      "mAP50": 0.9836,
+      "mAP50-95": 0.8344,
+      "instances": 89
+    },
+    "elephant": {
+      "precision": 0.9289,
+      "recall": 0.8681,
+      "mAP50": 0.9534,
+      "mAP50-95": 0.8001,
+      "instances": 91
+    },
+    "rhino": {
+      "precision": 0.9527,
+      "recall": 0.9647,
+      "mAP50": 0.9644,
+      "mAP50-95": 0.8634,
+      "instances": 85
+    },
+    "zebra": {
+      "precision": 0.9509,
+      "recall": 0.8772,
+      "mAP50": 0.962,
+      "mAP50-95": 0.7741,
+      "instances": 114
+    }
+  },
+  "speed_ms_per_image": {
+    "preprocess": 34.11,
+    "inference": 102.53,
+    "loss": 0.0,
+    "postprocess": 7.89
+  },
+  "hardware": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "torch": "2.3.1+cu118",
+  "ultralytics": "8.4.176",
+  "python": "3.12.10"
+}

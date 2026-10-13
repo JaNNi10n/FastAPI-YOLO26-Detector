@@ -1,0 +1,102 @@
+# First evaluate.py run (before the NMS time-limit fix), kept as evidence for README 'How it works' point 12.
+# Progress-bar output removed. The val/test metrics here are deflated by the batches NMS dropped.
+Ultralytics 8.4.176  Python-3.12.10 torch-2.3.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096MiB)
+YOLO26n summary (fused): 121 layers, 2,390,464 parameters, 0 gradients, 5.4 GFLOPs
+val:
+Fast image access  (ping: 0.5±0.1 ms, read: 52.8±62.1 MB/s, size: 52.2 KB)
+val:
+WARNING NMS time limit 2.050s exceeded
+WARNING NMS time limit 2.800s exceeded
+WARNING NMS time limit 2.800s exceeded
+WARNING NMS time limit 2.800s exceeded
+WARNING NMS time limit 2.800s exceeded
+WARNING NMS time limit 2.050s exceeded
+                   all        225        379      0.954      0.728      0.772      0.652
+               buffalo         62         89      0.973      0.814      0.873      0.735
+              elephant         53         91      0.926      0.703      0.746      0.633
+                 rhino         55         85       0.97      0.761      0.772       0.68
+                 zebra         59        114      0.947      0.632      0.697      0.559
+Speed: 15.9ms preprocess, 169.6ms inference, 0.0ms loss, 107.4ms postprocess per image
+Results saved to
+E:\Jassi\portfolio\FastAPI-YOLO26-Detector\runs\eval-val
+{
+  "weights": "yolo26n-african-wildlife.pt",
+  "data": "african-wildlife.yaml",
+  "split": "val",
+  "images": 225,
+  "imgsz": 640,
+  "overall": {
+    "precision": 0.9541,
+    "recall": 0.7276,
+    "mAP50": 0.772,
+    "mAP50-95": 0.6521
+  },
+  "per_class": {
+    "buffalo": {
+      "precision": 0.9731,
+      "recall": 0.8139,
+      "mAP50": 0.8729,
+      "mAP50-95": 0.7354,
+      "instances": 89
+    },
+    "elephant": {
+      "precision": 0.9264,
+      "recall": 0.7033,
+      "mAP50": 0.7458,
+      "mAP50-95": 0.6335,
+      "instances": 91
+    },
+    "rhino": {
+      "precision": 0.97,
+      "recall": 0.7614,
+      "mAP50": 0.7725,
+      "mAP50-95": 0.6801,
+      "instances": 85
+    },
+    "zebra": {
+      "precision": 0.9468,
+      "recall": 0.6316,
+      "mAP50": 0.697,
+      "mAP50-95": 0.5594,
+      "instances": 114
+    }
+  },
+  "speed_ms_per_image": {
+    "preprocess": 15.93,
+    "inference": 169.57,
+    "loss": 0.0,
+    "postprocess": 107.4
+  },
+  "hardware": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "torch": "2.3.1+cu118",
+  "ultralytics": "8.4.176",
+  "python": "3.12.10"
+}
+Ultralytics 8.4.176  Python-3.12.10 torch-2.3.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096MiB)
+YOLO26n summary (fused): 121 layers, 2,390,464 parameters, 0 gradients, 5.4 GFLOPs
+val:
+Fast image access  (ping: 0.6±0.1 ms, read: 115.8±104.4 MB/s, size: 142.3 KB)
+val:
+WARNING NMS time limit 2.800s exceeded
+                   all        227        375      0.981       0.88      0.941      0.818
+               buffalo         49         66      0.985      0.879      0.941      0.854
+              elephant         58         99      0.978      0.914      0.972        0.8
+                 rhino         55         75      0.986      0.972      0.992      0.918
+                 zebra         66        135      0.974      0.756      0.859      0.699
+Speed: 47.3ms preprocess, 172.1ms inference, 0.0ms loss, 27.2ms postprocess per image
+Results saved to
+E:\Jassi\portfolio\FastAPI-YOLO26-Detector\runs\eval-test
+{
+  "weights": "yolo26n-african-wildlife.pt",
+  "data": "african-wildlife.yaml",
+  "split": "test",
+  "images": 227,
+  "imgsz": 640,
+  "overall": {
+    "precision": 0.9809,
+    "recall": 0.88,
+    "mAP50": 0.9411,
+    "mAP50-95": 0.8176
+  },
+  "per_class": {
+    "buffalo": {

@@ -1,0 +1,22 @@
+{
+  "label": "cpu",
+  "model": "yolo26n-african-wildlife.pt",
+  "device": "cpu",
+  "image": "elephant_zebra.jpg",
+  "requests": 100,
+  "sequential_client_latency_ms": {
+    "mean": 1003.92,
+    "p50": 961.4,
+    "p95": 1643.0,
+    "min": 405.78
+  },
+  "server_inference_ms": {
+    "mean": 990.16,
+    "p50": 948.35,
+    "p95": 1626.62,
+    "min": 393.37
+  },
+  "throughput_req_per_s": 1.0,
+  "python": "3.12.10",
+  "os": "Windows-10-10.0.19045-SP0"
+}

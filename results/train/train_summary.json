@@ -1,0 +1,14 @@
+{
+  "base_model": "yolo26n.pt",
+  "data": "african-wildlife.yaml",
+  "epochs": 30,
+  "imgsz": 640,
+  "batch_this_invocation": 8,
+  "seed": 0,
+  "train_minutes_this_invocation": 9.4,
+  "resumed_from": "runs/yolo26n-african-wildlife/weights/last.pt",
+  "device": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "torch": "2.3.1+cu118",
+  "python": "3.12.10",
+  "weights": "models/yolo26n-african-wildlife.pt"
+}
