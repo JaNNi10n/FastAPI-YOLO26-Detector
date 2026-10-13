@@ -1,0 +1,19 @@
+{
+  "description": "FastAPI REST API serving a YOLO26n detector fine-tuned on the African Wildlife dataset, with tests and held-out metrics",
+  "topics": [
+    "fastapi",
+    "yolo",
+    "object-detection",
+    "computer-vision",
+    "ultralytics",
+    "pytorch",
+    "rest-api",
+    "docker"
+  ],
+  "homepage": "",
+  "release": {
+    "tag": "v1.0.0",
+    "title": "v1.0.0: YOLO26n wildlife detector, hardened API, tests and measured results",
+    "notes": "First polished release on top of the original single-file demo.\n\n### Highlights\n- Default model: **YOLO26n fine-tuned on the public African Wildlife dataset** (buffalo, elephant, rhino, zebra). Held-out **test** split (227 images): mAP50 **0.975**, mAP50-95 **0.847** (`results/metrics_test.json`).\n- `/predict` returns class, confidence and box per detection plus image size; `/predict/annotated` returns a JPEG with boxes drawn.\n- Upload validation: 415 / 413 / 400 / 422 instead of HTTP 500; uploads decoded in memory (no shared `temp.jpg`).\n- Blocking inference moved off the event loop; model loaded once with warm-up; config through env vars.\n- Pinned requirements, a CPU-only Dockerfile (not yet built), 16 pytest tests, and a ruff + pytest GitHub Actions workflow.\n- Training, evaluation and latency scripts, with every README number backed by a file in `results/`.\n\n### Honesty note\nThe original `best.pt` was YOLOv8n fine-tuned on coco128, not YOLO26 on a custom dataset. It is kept as `models/yolov8n-coco128-demo.pt`, and its metadata is in `results/legacy_checkpoint.json`.\n\n### Breaking change\nThe `/predict` response changed from `{boxes, classes}` to `{model, image, detections[], inference_ms}`. See CHANGELOG.md."
+  }
+}
