@@ -1,0 +1,41 @@
+# Independent re-run from a fresh git clone, 2026-10-13 (same PC as all other results).
+# Fresh venv (--system-site-packages, torch 2.3.1+cu118 from system Python) + pip install -r requirements-dev.txt.
+# The GPU was again shared with other processes during these runs.
+
+## ruff check . / ruff format --check .
+All checks passed! / 11 files already formatted
+
+## pytest -q  (auto device -> cuda:0)
+16 passed in 25.92s
+## DEVICE=cpu pytest -q
+16 passed in 16.91s
+
+## python scripts/evaluate.py --split val
+Ultralytics 8.4.176  Python-3.12.10 torch-2.3.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096MiB)
+YOLO26n summary (fused): 121 layers, 2,390,464 parameters, 0 gradients, 5.4 GFLOPs
+                   all        225        379       0.95      0.908      0.965      0.819
+               buffalo         62         89      0.976      0.926      0.982      0.836
+              elephant         53         91      0.919      0.868      0.953      0.802
+                 rhino         55         85      0.953      0.961      0.964      0.861
+                 zebra         59        114      0.952      0.877      0.962      0.775
+Speed: 1.4ms preprocess, 36.4ms inference, 0.0ms loss, 20.0ms postprocess per image
+
+## python scripts/evaluate.py --split test
+# (The first attempt stopped with CUDA out-of-memory because other processes held most of the 4 GB;
+#  the retry with identical settings, shown here, completed.)
+Ultralytics 8.4.176  Python-3.12.10 torch-2.3.1+cu118 CUDA:0 (NVIDIA GeForce RTX 3050 Ti Laptop GPU, 4096MiB)
+YOLO26n summary (fused): 121 layers, 2,390,464 parameters, 0 gradients, 5.4 GFLOPs
+                   all        227        375      0.982      0.915      0.975      0.847
+               buffalo         49         66      0.985      0.894      0.952      0.866
+              elephant         58         99      0.978      0.913      0.971      0.799
+                 rhino         55         75      0.986      0.972      0.992      0.918
+                 zebra         66        135      0.978      0.881      0.984      0.805
+Speed: 1.9ms preprocess, 46.5ms inference, 0.0ms loss, 20.9ms postprocess per image
+
+## python scripts/benchmark_api.py --n 100  (one uvicorn worker, DEVICE auto -> cuda:0)
+client p50 72.93 ms, p95 198.88 ms; server inference p50 57.51 ms; 6.4 req/s
+## same, DEVICE=cpu
+client p50 864.21 ms, p95 1557.34 ms; server inference p50 848.53 ms; 1.1 req/s
+
+## POST /predict on tests/assets/elephant_zebra.jpg
+Detections (classes, confidences, boxes) identical to docs/demo_response.json; only inference_ms differs.

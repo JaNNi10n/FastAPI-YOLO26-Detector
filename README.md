@@ -185,6 +185,8 @@ All numbers were produced on this machine: **Windows 10, NVIDIA GeForce RTX 3050
 | val | 225 | choosing the best epoch | 0.952 | 0.909 | 0.966 | 0.818 |
 | **test** | 227 | nothing (held out) | **0.981** | **0.920** | **0.975** | **0.847** |
 
+An independent re-run from a fresh `git clone` (new venv, `pip install -r requirements-dev.txt`) gave the same test result (P 0.982, R 0.915, mAP50 0.975, mAP50-95 0.847) and val mAP50 0.965 / mAP50-95 0.819, a difference in the third decimal from GPU non-determinism. Log: [`results/verification_rerun.txt`](results/verification_rerun.txt).
+
 The **test** row is the honest number: those 227 images were never used for training or for choosing the checkpoint. The val split chose the best epoch, so its numbers are slightly optimistic. Measured with `scripts/evaluate.py` (Ultralytics `model.val()`, 640 px, conf 0.001, standard NMS) on the GPU above. Source: [`results/metrics_test.json`](results/metrics_test.json), [`results/metrics_val.json`](results/metrics_val.json), with logs in `results/eval_*_log.txt`.
 
 Per class, test split:
@@ -207,7 +209,7 @@ Per class, test split:
 | GPU, RTX 3050 Ti (`cuda:0`) | 64 | 397 | 50 | 5.4 |
 | CPU (`cpu`) | 961 | 1643 | 948 | 1.0 |
 
-Source: [`results/latency_gpu.json`](results/latency_gpu.json), [`results/latency_cpu.json`](results/latency_cpu.json). During these runs the laptop was also running other jobs: `nvidia-smi` showed about 3.6 of the GPU's 4 GB in use and 100 % utilisation from other processes. The gap between p50 and p95 comes from that contention. Treat these as rough figures for a busy laptop, not a controlled benchmark. Latency on an idle machine was not measured.
+Source: [`results/latency_gpu.json`](results/latency_gpu.json), [`results/latency_cpu.json`](results/latency_cpu.json). During these runs the GPU was shared with other jobs running on the laptop, which is the most likely cause of the large gap between p50 and p95. A second run from a fresh clone (also on a shared GPU) gave GPU client p50 73 ms / p95 199 ms and CPU client p50 864 ms / p95 1557 ms ([`results/verification_rerun.txt`](results/verification_rerun.txt)), so expect this kind of spread. Treat these as rough figures for a busy laptop, not a controlled benchmark. Latency on an idle machine was not measured.
 
 ### Tests
 
