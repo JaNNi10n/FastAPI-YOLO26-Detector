@@ -9,3 +9,4 @@ results
 docs
 tests
 *.md
+.venv
